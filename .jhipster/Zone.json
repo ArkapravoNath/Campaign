@@ -1,0 +1,61 @@
+{
+  "name": "Zone",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StatusType",
+      "fieldValues": "ACTIVE,INACTIVE"
+    },
+    {
+      "fieldName": "radius",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "metadata",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "zoneType",
+      "otherEntityRelationshipName": "zone",
+      "relationshipName": "zoneType",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "zone",
+      "relationshipName": "location",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200926172352",
+  "entityTableName": "zone",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "campaign",
+  "applications": "*",
+  "microserviceName": "campaign",
+  "enableEntityAudit": true
+}

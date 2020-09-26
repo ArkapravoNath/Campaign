@@ -1,0 +1,45 @@
+{
+  "name": "Question",
+  "fields": [
+    {
+      "fieldName": "text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "inputControl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "masterValues",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StatusType",
+      "fieldValues": "ACTIVE,INACTIVE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "questionSet",
+      "otherEntityRelationshipName": "question",
+      "relationshipName": "questionSet",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200926171752",
+  "entityTableName": "question",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "campaign",
+  "applications": "*",
+  "microserviceName": "campaign",
+  "enableEntityAudit": true
+}

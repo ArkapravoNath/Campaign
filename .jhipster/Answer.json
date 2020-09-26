@@ -1,0 +1,43 @@
+{
+  "name": "Answer",
+  "fields": [
+    {
+      "fieldName": "qid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "question",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "answer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "metadata",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "answerSet",
+      "otherEntityRelationshipName": "answer",
+      "relationshipName": "answerSet",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200926171952",
+  "entityTableName": "answer",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "campaign",
+  "applications": "*",
+  "microserviceName": "campaign",
+  "enableEntityAudit": true
+}

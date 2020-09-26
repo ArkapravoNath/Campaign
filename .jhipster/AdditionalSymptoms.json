@@ -1,0 +1,36 @@
+{
+  "name": "AdditionalSymptoms",
+  "fields": [
+    {
+      "fieldName": "identifier",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "citizenMedical",
+      "otherEntityRelationshipName": "additionalSymptoms",
+      "relationshipName": "citizenMedical"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "serviceReq",
+      "otherEntityRelationshipName": "additionalSymptoms",
+      "relationshipName": "serviceReq"
+    }
+  ],
+  "changelogDate": "20200926173052",
+  "entityTableName": "additional_symptoms",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "campaign",
+  "applications": "*",
+  "microserviceName": "campaign",
+  "enableEntityAudit": true
+}

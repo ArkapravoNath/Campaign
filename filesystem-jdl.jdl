@@ -1,0 +1,18 @@
+enum RequestStatus {
+	FAILURE, SUCCESS
+}
+
+entity FileParseRequest {
+	fileId Long
+    fileName String
+    status RequestStatus
+    message String
+    records Long
+    metadata String
+}
+
+service all with serviceImpl
+dto * with mapstruct
+
+// Set pagination options
+paginate all with pagination

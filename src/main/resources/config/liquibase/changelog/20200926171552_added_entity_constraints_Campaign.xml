@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Campaign.
+    -->
+    <changeSet id="20200926171552-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="parent_id"
+                                 baseTableName="campaign"
+                                 constraintName="fk_campaign_parent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="campaign"/>
+
+        <addForeignKeyConstraint baseColumnNames="owner_id"
+                                 baseTableName="campaign"
+                                 constraintName="fk_campaign_owner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="owner"/>
+
+        <addForeignKeyConstraint baseColumnNames="location_id"
+                                 baseTableName="campaign"
+                                 constraintName="fk_campaign_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="location"/>
+
+        <addForeignKeyConstraint baseColumnNames="zone_id"
+                                 baseTableName="campaign"
+                                 constraintName="fk_campaign_zone_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="zone"/>
+
+        <addForeignKeyConstraint baseColumnNames="question_set_id"
+                                 baseTableName="campaign"
+                                 constraintName="fk_campaign_question_set_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="question_set"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_id"
+                                 baseTableName="campaign"
+                                 constraintName="fk_campaign_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="camp_type"/>
+
+    </changeSet>
+</databaseChangeLog>

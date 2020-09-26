@@ -1,0 +1,57 @@
+{
+  "name": "AnswerSet",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "source",
+      "fieldType": "SourceType",
+      "fieldValues": "APTHAMITRA,CRM"
+    },
+    {
+      "fieldName": "metadata",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "remarks",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "answer",
+      "otherEntityRelationshipName": "answerSet",
+      "relationshipName": "answer"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "file",
+      "otherEntityRelationshipName": "answerSet",
+      "relationshipName": "file",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "questionSet",
+      "otherEntityRelationshipName": "answerSet",
+      "relationshipName": "questionSet",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200926171852",
+  "entityTableName": "answer_set",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "campaign",
+  "applications": "*",
+  "microserviceName": "campaign",
+  "enableEntityAudit": true
+}

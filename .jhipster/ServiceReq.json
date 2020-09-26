@@ -1,0 +1,65 @@
+{
+  "name": "ServiceReq",
+  "fields": [
+    {
+      "fieldName": "serviceType",
+      "fieldType": "ServiceType",
+      "fieldValues": "MEDICAL,FOOD,FACILITIES"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "ServiceStatus",
+      "fieldValues": "NEW,PENDING,CLOSED"
+    },
+    {
+      "fieldName": "statusDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subStatus",
+      "fieldType": "ServiceSubStatus",
+      "fieldValues": "INITIATED,COMPLETED,REJECTED"
+    },
+    {
+      "fieldName": "remarks",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "essentials",
+      "otherEntityRelationshipName": "serviceReq",
+      "relationshipName": "essentials",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "additionalSymptoms",
+      "otherEntityRelationshipName": "serviceReq",
+      "relationshipName": "additionalSymptoms",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200926173252",
+  "entityTableName": "service_req",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "campaign",
+  "applications": "*",
+  "microserviceName": "campaign",
+  "enableEntityAudit": true
+}

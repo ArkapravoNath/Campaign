@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.gok.campaign"
+    },
+    "jhipsterVersion": "6.10.1",
+    "applicationType": "microservice",
+    "baseName": "campaign",
+    "packageName": "com.gok.campaign",
+    "packageFolder": "com/gok/campaign",
+    "serverPort": "8054",
+    "authenticationType": "oauth2",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "ZjZlYjJlNjRlMmFkMzc0MzExNzA4MzQ2MDExMTI1ZTkyMWUxNzM1ZjUyNDRlOGE3MjhkNGFjM2Q1YWVjZjk3MjZlZWVkN2IzOTM2NjI3ZTJjOGI0MWM0NmQyYzRkZDEwNzYwOTAwNzJlMTJmNWQwZmM0MDVkNzUyYTA5NTEwN2U=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1601140286542,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  },
+  "generator-jhipster-entity-audit": {
+    "auditFramework": "custom",
+    "auditPage": true,
+    "lastLiquibaseTimestamp": 1601140827000
+  }
+}

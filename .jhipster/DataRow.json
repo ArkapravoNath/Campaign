@@ -1,0 +1,39 @@
+{
+  "name": "DataRow",
+  "fields": [
+    {
+      "fieldName": "sNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "identifier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "source",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "file",
+      "otherEntityRelationshipName": "dataRow",
+      "relationshipName": "file",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200926172652",
+  "entityTableName": "data_row",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "campaign",
+  "applications": "*",
+  "microserviceName": "campaign",
+  "enableEntityAudit": true
+}

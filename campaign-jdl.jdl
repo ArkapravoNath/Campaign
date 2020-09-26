@@ -1,0 +1,205 @@
+enum StatusType {
+    ACTIVE, INACTIVE
+}
+
+entity Campaign {
+    name String
+    code String required
+    status StatusType
+    startDate Instant
+    endDate Instant
+    metadata String // json
+    manipulateSymptom Boolean
+}
+
+entity QuestionSet {
+    name String
+    metadata String // json
+}
+
+entity Question {
+    text String // Text
+    inputControl String
+    masterValues String // json
+    status StatusType
+}
+
+enum SourceType {
+    APTHAMITRA, CRM
+}
+
+entity AnswerSet {
+    name String
+    source SourceType
+    metadata String // json
+    remarks String
+}
+
+entity Answer {
+    qid Long
+    question String // Text
+    answer String // Text
+    metadata String // json
+}
+
+entity CampType {
+    name String
+    metadata String // json
+}
+
+entity Owner {
+    name String
+    number String
+    commandCenterNumber String
+    email String
+    metadata String // json
+}
+
+entity Location{
+    city String
+    taluka String
+    location String // text
+
+    pinCode String
+    latitude Float
+    longitude Float
+    street String
+    area String
+    houseNo String
+}
+
+entity Zone{
+	name String
+    code String
+    description String // text
+    status StatusType
+    radius Float
+    metadata String // json
+}
+
+entity ZoneType{
+	name String
+    identifier String
+    description String // Text
+}
+
+entity File {
+	fileName String required
+    type String
+    size Float
+    fileOriginalName String
+    fileLocation String
+    antivirusCheck String
+    contentType String
+    campaignCode String
+}
+
+entity DataRow {
+    sNo String
+    identifier String
+    source String
+}
+
+entity DataColumn {
+    value String
+}
+
+entity ColumnMaster {
+    name String
+}
+
+entity CitizenMedical{
+    measurement String
+    remark String   // text
+}
+
+entity AdditionalSymptoms {
+    identifier String
+}
+
+
+entity MedicalSymptom{
+	name String // example: Diabetes
+  	identifier String
+    description String //text
+    priority Integer
+}
+
+enum ServiceStatus {
+    NEW, PENDING, CLOSED
+}
+
+enum ServiceSubStatus {
+    INITIATED, COMPLETED, REJECTED
+}
+
+entity ServiceReq{
+	serviceType ServiceType
+    name String
+    description String // text
+    status ServiceStatus
+    statusDescription String // text
+    subStatus ServiceSubStatus
+    remarks String // text
+}
+
+enum ServiceType{
+	MEDICAL, FOOD, FACILITIES
+}
+
+entity Essentials{
+	item String
+    itemDescription String // text
+    taskType TaskType
+    priority Integer
+    quantity Integer
+}
+
+enum TaskType{
+	IN, OUT
+}
+
+relationship ManyToOne {
+    AnswerSet{ file } to File
+    AnswerSet{ questionSet } to QuestionSet
+    Campaign { type } to CampType
+    CitizenMedical{ medicalSysmptom } to MedicalSymptom
+    DataRow{ file } to File
+    DataColumn{ row } to DataRow
+    DataColumn{ column } to ColumnMaster
+
+}
+
+relationship OneToOne {
+    Campaign { parent } to Campaign
+    Campaign{ owner } to Owner
+    Campaign{ location } to Location
+    Campaign{ zone } to Zone
+    Campaign{ questionSet } to QuestionSet
+    Essentials to ServiceReq
+}
+
+relationship ManyToMany {
+    QuestionSet to Question
+    Zone to ZoneType
+    Zone to Location
+}
+
+
+relationship OneToMany {
+    // Ticket to AdditionalSymptoms
+    // Ticket to AnswerSet
+    AnswerSet to Answer
+    AdditionalSymptoms to CitizenMedical
+    AdditionalSymptoms to ServiceReq
+}
+
+service all with serviceImpl
+dto * with mapstruct
+
+
+
+// Set pagination options
+paginate all with pagination
+
+
